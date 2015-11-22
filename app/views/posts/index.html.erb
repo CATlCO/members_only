@@ -1,0 +1,12 @@
+<%= link_to 'Index', root_path %>
+<% if signed_in? %>
+	<%= link_to 'Sign_out', signout_path, method: :delete %>
+<% else %>
+	<%= link_to 'Sign_in', signin_path %>
+<% end %>
+<br>
+<% @posts.each do |post| %>
+	<%= post.title %><br>
+	<%= post.content %><br>
+	<%= post.user.name if signed_in? %><br>
+<% end %>
